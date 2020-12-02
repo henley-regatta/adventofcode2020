@@ -37,11 +37,13 @@ the code doesn't run for long enough to work. So I followed the [*master* guide]
   * 'dat2part1_go_profiling/main_test.go'
 
 This will produce some _mighty pretty_ PDF output if one adopts the mantra:
-`
+
+```
 cd day2part1_go_profiling
 go test -cpuprofile cpu.prof -bench .
 go tool pprof --pdf cpu.prof
-`
+```
+
 ..will produce a nice 'profile001.pdf' with an excellent call-graph. Alternatively,
 dynamic examination using just `go tool pprof cpu.prof` and then `top5 -cum` will show
 the problem with none of the PDF overhead: `strings.Split` is slow.
