@@ -34,7 +34,7 @@ My code for `day2part1.go` is an order of magnitude slower than the python versi
 I had problems with some of the "easy profiling" guides out there - _probably_ because
 the code doesn't run for long enough to work. So I followed the [*master* guide](https://golangdocs.com/profiling-in-golang) and re-wrote the solution into a testing iteration under
   * `day2part1_go_profiling/main.go`
-  * 'dat2part1_go_profiling/main_test.go`
+  * `day2part1_go_profiling/main_test.go`
 
 This will produce some _mighty pretty_ PDF output if one adopts the mantra:
 
