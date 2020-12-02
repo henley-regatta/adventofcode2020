@@ -7,6 +7,7 @@
 #          where <num>-<num> defines the number of times that <char> must appear
 #          in the <password> that follows.
 import sys
+import json
 
 pwdlist = []
 compliant = 0
@@ -21,10 +22,13 @@ with open('day2_input.txt','r') as pfile:
         min=int(range[0])
         max=int(range[1])
         numOccurrences=passwd.count(pchar)
-        pwdlist.append({'min' : min, 'max' : max, 'pchar' : pchar, 'passwd' : 'passwd', 'occurrences': numOccurrences})
+        pwdlist.append({'min' : min, 'max' : max, 'pchar' : pchar, 'passwd' : passwd, 'occurrences': numOccurrences})
         if numOccurrences >= min and numOccurrences <= max :
             compliant = compliant + 1
         else :
             noncompliant = noncompliant + 1
 
 print("Read {0} passwords. {1} complied with policy ({2} didn't)".format(len(pwdlist),compliant,noncompliant))
+
+with open('day2_input_parsed.json','w') as j:
+    json.dump(pwdlist,j)
