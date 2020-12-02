@@ -21,6 +21,7 @@ peer-pressured into trying different solutions:
 
   * 'day1part1.go' - a crack at it in go. Relies on numbers being in 'day1_input.txt'
   * 'day1part2.go' - trivially extend part1 to answer the 2nd part of the question
+  * 'day2part1.go' - An exercise in text parsing more than coding. Needs profiling to work out whether it's the parsing or the evaluating that's so slow.
 
 
 ...Every solution I write looks like early-90's imperative code because guess when
