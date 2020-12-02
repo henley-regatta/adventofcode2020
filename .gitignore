@@ -1,3 +1,11 @@
+#Since I've started trying Rust which produces binaries....
+#Start by IGNORE ALL:
+*
+
+# Unignore all with extensions
+!*.*
+
+#Sundry output / temp formats
 *pyc
 *input.txt
 *json
@@ -5,3 +13,4 @@ hello.*
 *pdf
 *prof
 *test
+.o

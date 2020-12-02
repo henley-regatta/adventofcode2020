@@ -47,3 +47,13 @@ go tool pprof --pdf cpu.prof
 ..will produce a nice 'profile001.pdf' with an excellent call-graph. Alternatively,
 dynamic examination using just `go tool pprof cpu.prof` and then `top5 -cum` will show
 the problem with none of the PDF overhead: `strings.Split` is slow.
+
+## The plural of Redundant is Stupidity
+
+The cool system kids are all dropping C for Rust these days....
+
+  * `day1part1.rs` - Same algorithm as before (flaws and all) but in Rust.
+
+Interestingly, this code is about 2x faster than the Go implementation, but default
+compilation (`rustc day1part1.rs`) produces a binary 2x bigger. BUT after `strip`ping both,
+the rust binary is 6x smaller. Your definition of "interesting" might vary from mine, of course.
