@@ -14,6 +14,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day2part2.py` - would it surprise anyone to find I had off-by-one problems getting chars out? Relies on JSON from part1. Does get right answer
 
   * `day3part1.py` - This one I'm actually fairly happy with, as a solution:
+  * `day3part2.py` - And this is a fairly logical extension. The answer's silly but that's the point, right?
 
 ## grr peer pressure
 
