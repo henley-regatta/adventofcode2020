@@ -13,6 +13,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day2part1.py` - simplest way I could think to process on read. Does create JSON output for part2 though.
   * `day2part2.py` - would it surprise anyone to find I had off-by-one problems getting chars out? Relies on JSON from part1. Does get right answer
 
+  * `day3part1.py` - This one I'm actually fairly happy with, as a solution:
 
 ## grr peer pressure
 
