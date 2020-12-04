@@ -16,7 +16,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day3part1.py` - This one I'm actually fairly happy with, as a solution:
   * `day3part2.py` - And this is a fairly logical extension. The answer's silly but that's the point, right?
   * `day4part1.py` - Mostly an exercise in reading semi-sane records. Had some silliness to deal with on record boundaries. Frustrating rather than satisfying
-  * `day4part2.py` - Oh god that was frustrating. Field validation is serious business. Read the spec correctly, and don't assume any behaviour out of your language that you're not 100% confident you've tested and understood. 
+  * `day4part2.py` - Oh god that was frustrating. Field validation is serious business. Read the spec correctly, and don't assume any behaviour out of your language that you're not 100% confident you've tested and understood.
 
 ## grr peer pressure
 
@@ -27,6 +27,7 @@ peer-pressured into trying different solutions:
   * `day1part2.go` - trivially extend part1 to answer the 2nd part of the question
   * `day2part1.go` - An exercise in text parsing more than coding. Needs profiling to work out whether it's the parsing or the evaluating that's so slow. Relies on data being in `day2_input.txt`
   * `day3part2.go` - Only solved the total problem in Go today. Spent a long time fighting the difference between a string, a byte array, a rune, and how to compare them. Learned a lot but not sure I was impressed with what I learned.
+  * `day4part2.go` - Again, only the larger problem today. Mostly an exercise in input validation. This feels like I'm missing some important idiomatic tricks from the language but then, all I have in my toolbox is this big hammer....
 
 ...Every solution I write looks like early-90's imperative code because guess when
 I learnt how to program. Objects are _new fangled_ things to me.
