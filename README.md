@@ -16,6 +16,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day3part1.py` - This one I'm actually fairly happy with, as a solution:
   * `day3part2.py` - And this is a fairly logical extension. The answer's silly but that's the point, right?
   * `day4part1.py` - Mostly an exercise in reading semi-sane records. Had some silliness to deal with on record boundaries. Frustrating rather than satisfying
+  * `day4part2.py` - Oh god that was frustrating. Field validation is serious business. Read the spec correctly, and don't assume any behaviour out of your language that you're not 100% confident you've tested and understood. 
 
 ## grr peer pressure
 
