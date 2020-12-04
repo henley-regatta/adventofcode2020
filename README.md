@@ -15,6 +15,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
 
   * `day3part1.py` - This one I'm actually fairly happy with, as a solution:
   * `day3part2.py` - And this is a fairly logical extension. The answer's silly but that's the point, right?
+  * `day4part1.py` - Mostly an exercise in reading semi-sane records. Had some silliness to deal with on record boundaries. Frustrating rather than satisfying
 
 ## grr peer pressure
 

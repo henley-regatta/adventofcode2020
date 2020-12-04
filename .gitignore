@@ -8,6 +8,7 @@
 #Sundry output / temp formats
 *pyc
 *input.txt
+*test.txt
 *json
 hello.*
 *pdf
