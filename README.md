@@ -18,6 +18,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day4part1.py` - Mostly an exercise in reading semi-sane records. Had some silliness to deal with on record boundaries. Frustrating rather than satisfying
   * `day4part2.py` - Oh god that was frustrating. Field validation is serious business. Read the spec correctly, and don't assume any behaviour out of your language that you're not 100% confident you've tested and understood.
   * `day5part1.py` - This was a lot easier than I thought it would be once I worked out the trick of decoding a binary search in this way...
+  * `day5part2.py` - Strictly speaking this isn't a solution, in that it doesn't spit out an answer. What it does do is spit out the seat IDs adjacent to the answer though...
 
 ## grr peer pressure
 
