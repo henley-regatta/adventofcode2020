@@ -17,6 +17,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day3part2.py` - And this is a fairly logical extension. The answer's silly but that's the point, right?
   * `day4part1.py` - Mostly an exercise in reading semi-sane records. Had some silliness to deal with on record boundaries. Frustrating rather than satisfying
   * `day4part2.py` - Oh god that was frustrating. Field validation is serious business. Read the spec correctly, and don't assume any behaviour out of your language that you're not 100% confident you've tested and understood.
+  * `day5part1.py` - This was a lot easier than I thought it would be once I worked out the trick of decoding a binary search in this way...
 
 ## grr peer pressure
 
