@@ -21,6 +21,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day5part2.py` - Strictly speaking this isn't a solution, in that it doesn't spit out an answer. What it does do is spit out the seat IDs adjacent to the answer though...
   * `day6part1.py` - It gets the right answer but even I think there's got to be a better way to solve this one...
   * `day6part2.py` - OK this is _marginally_ cleverer than part one but not by much
+  * `day7part1.py` - I know this is "invert the binary tree" but I'm too stupid to do that directly. Consequently this was more hassle than fun. Works though.
 
 ## grr peer pressure
 
