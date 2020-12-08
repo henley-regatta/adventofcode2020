@@ -2,6 +2,12 @@
 
 I don't think I've got the chops for this one for the full list but hey ho.
 
+Answers are structured by language (Python, Go, Rust) and named by day.
+
+I find Python easiest so there's answers by day,part for all the problems I've attempted.
+I've done the superset problems (normally part2) in Go as an exercise in learning that for _most_ days.
+I've done a smattering of problems in Rust as a learning exercise there, but although the compiler's great at giving help I find it quite a frustrating language to write in.
+
 ## smol python script go brrrrrrr
 
   * `day1part1.py` - brute force python approach to the solution. Works.
