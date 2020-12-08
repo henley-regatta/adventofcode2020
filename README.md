@@ -37,6 +37,7 @@ peer-pressured into trying different solutions:
   * `day3part2.go` - Only solved the total problem in Go today. Spent a long time fighting the difference between a string, a byte array, a rune, and how to compare them. Learned a lot but not sure I was impressed with what I learned.
   * `day4part2.go` - Again, only the larger problem today. Mostly an exercise in input validation. This feels like I'm missing some important idiomatic tricks from the language but then, all I have in my toolbox is this big hammer....
   * `day7part1.go` - Took me long enough to work out the input parsing and struct data format that I don't have time or inclination to have a go at part 2. This is ugly enough as it stands.
+  * `day8part2.go` - Today's part 2 is a superset of part 1 so why bother implementing half a solution only? This problem seems to suit the way I'm writing Go so this solution looks OK to my simple eyes.
 
 ...Every solution I write looks like early-90's imperative code because guess when
 I learnt how to program. Objects are _new fangled_ things to me.
