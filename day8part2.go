@@ -160,11 +160,13 @@ func main() {
     if tryChange {
       newRunRes := executeInstructionSet(instructionSet)
       if newRunRes.looped {
+        /*
         fmt.Printf("Changing instruction %d to %s didn't help; looped after %d instructions at %d\n",
           ti,
           instructionSet[ti].ins,
           len(newRunRes.executedInstructions),
           newRunRes.pcr)
+        */
         instructionSet[ti].ins = orgIns
       } else {
         fmt.Printf("SUCCESS! Changing instruction %d to %s caused termination with ACC = %d\n",

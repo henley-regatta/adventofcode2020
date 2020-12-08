@@ -69,6 +69,7 @@ The cool system kids are all dropping C for Rust these days....
 
   * `day1part1.rs` - Same algorithm as before (flaws and all) but in Rust.
   * `day3part2.rs` - Not sure how I feel about this one. Same algorithm as other implementations, but one seems to spend a _lot_ of time fighting the compiler and working out how Rust likes to pass things around instead of focussing on the problem at hand.
+  * `day8part2.rs` - This feels like the sort of job that Rust ought to be good at, but clearly I'm an idiot at implementation because there's a heck of a lot of type cooercion, value copying and general hacking-around-the-language-features I needed to get this to work.
 
 Interestingly, this code is about 2x faster than the Go implementation, but default
 compilation (`rustc day1part1.rs`) produces a binary 2x bigger. BUT after `strip`ping both,

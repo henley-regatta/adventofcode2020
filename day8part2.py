@@ -95,10 +95,10 @@ if __name__ == "__main__" :
         else :
             print("OH GOD I MESSED UP: INS {} ISN'T A NOP/JMP, ITS: {}".format(i,srcCode[i]))
             exit(2)
-        print("Testing change ins {} from {} -> {}".format(i,orgIns,srcCode[i]['ins']))
+        #print("Testing change ins {} from {} -> {}".format(i,orgIns,srcCode[i]['ins']))
         looped,acc,pcr,visitedInstructions = executeJVM(srcCode)
         if looped :
-            print("Test ins {} swap failed; looped at {}".format(i,pcr))
+            #print("Test ins {} swap failed; looped at {}".format(i,pcr))
             srcCode[i]['ins']=orgIns #PUT IT BACK BECAUSE SINGLE CHANGES
         else :
             print("Success! Swapping instruction {} ({} to {}) resulted in termination, ACC = {}".
