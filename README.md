@@ -23,6 +23,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day6part2.py` - OK this is _marginally_ cleverer than part one but not by much
   * `day7part1.py` - I know this is "invert the binary tree" but I'm too stupid to do that directly. Consequently this was more hassle than fun. Works though.
   * `day7part2.py` - I spent much longer than I'd like to admit trying to work out why I was/wasn't double-counting sub-bags. But I got the answer in the end thanks to the example data. Not as much fun as I'd hoped.
+  * `day8part1.py` - Now *this* is a fun little problem. It's a mini-VM code debug exercise. Yay!
 
 ## grr peer pressure
 
