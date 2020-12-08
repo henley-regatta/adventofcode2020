@@ -12,7 +12,7 @@ import json
 pwdlist = []
 compliant = 0
 noncompliant = 0
-with open('day2_input.txt','r') as pfile:
+with open('../data/day2_input.txt','r') as pfile:
     for l in pfile:
         parts = l.split(': ')
         passwd = parts[1]
@@ -30,5 +30,5 @@ with open('day2_input.txt','r') as pfile:
 
 print("Read {0} passwords. {1} complied with policy ({2} didn't)".format(len(pwdlist),compliant,noncompliant))
 
-with open('day2_input_parsed.json','w') as j:
+with open('../data/day2_input_parsed.json','w') as j:
     json.dump(pwdlist,j)

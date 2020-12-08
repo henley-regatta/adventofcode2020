@@ -15,7 +15,7 @@ import sys
 
 #Get our input, split into groups
 groupinput=[]
-with open("day6_input.txt","r") as input:
+with open("../data/day6_input.txt","r") as input:
     group={'pcount':0}
     for line in input:
         person=line.strip('\n')

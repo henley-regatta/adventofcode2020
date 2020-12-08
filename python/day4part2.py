@@ -119,8 +119,8 @@ def reportMissingFields(fldlist,record) :
 #############################################################################
 #Actually, reading the file is most of the processing here....
 #(but since there will be a part 2, do it properly)
-#with open("d4p2test.txt","r") as f:
-with open("day4_input.txt","r") as f:
+#with open("../data/d4p2test.txt","r") as f:
+with open("../data/day4_input.txt","r") as f:
     trec = {}
     for l in f:
         fld = l.strip('\n').split(' ')

@@ -68,7 +68,7 @@ def executeJVM(instructions) :
 ###############################################################################
 ###############################################################################
 if __name__ == "__main__" :
-    codefile="day8_input.txt"
+    codefile="../data/day8_input.txt"
     srcCode = loadInstructions(codefile)
     print("Read file containing {} instructions".format(len(srcCode)))
     #Execute the code once, to get a list of instructions that have been visited

@@ -7,7 +7,7 @@ import sys
 
 #Get the input list
 numlist = []
-with open("day1_input.txt",'r') as numfile:
+with open("../data/day1_input.txt",'r') as numfile:
     for l in numfile:
         numlist.append(int(l))
 

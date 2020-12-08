@@ -13,7 +13,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 fn main() {
-    let f = File::open("day1_input.txt").expect("Unable to open file");
+    let f = File::open("../data/day1_input.txt").expect("Unable to open file");
     let f = BufReader::new(f);
 
     let mut elem: Vec<i32> = Vec::new();

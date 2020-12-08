@@ -131,7 +131,7 @@ func parseFileIntoInstructionSet(filename string) []Instruction {
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------
 func main() {
-  instructionSet := parseFileIntoInstructionSet("day8_input.txt");
+  instructionSet := parseFileIntoInstructionSet("../data/day8_input.txt");
   fmt.Printf("Instruction set has %d instructions\n",len(instructionSet))
 
   //Run the code once to gather the set of executed instructions

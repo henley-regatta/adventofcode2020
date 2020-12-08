@@ -208,7 +208,7 @@ func parseKVPRecordIntoPassportRecord(kvp_rec [][]string) PassportRecord {
 */
 func main() {
 
-  prec_text := readFileIntoRecords("day4_input.txt")
+  prec_text := readFileIntoRecords("../data/day4_input.txt")
   var passport_records []PassportRecord
   for _,rec_text := range prec_text {
     kvp_rec := parseRecordIntoFieldPairs(rec_text)

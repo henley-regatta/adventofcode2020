@@ -18,9 +18,9 @@ nocontains = re.compile('(.+) bags contain no other')
 
 #Read the list of rules in from file
 bagrules = {}
-rfile="day7_input.txt"
-#rfile="d7_test.txt"
-#rfile="d72test.txt"
+rfile="../data/day7_input.txt"
+#rfile="../data/d7_test.txt"
+#rfile="../data/d72test.txt"
 with open(rfile,"r") as rf:
     for rtext in rf:
         rule = {}

@@ -50,7 +50,7 @@ fn run_slope_on_course(dx: usize, dy: usize, course: &Vec<String>) -> usize {
 
 // -------------------------------------------------------------------------------------------
 fn main() {
-    let course = read_course_to_string_array("day3_input.txt");
+    let course = read_course_to_string_array("../data/day3_input.txt");
     //define the slopes to investigate
     let slopes = [[1,1],[3,1],[5,1],[7,1],[1,2]];
     let mut product_trees_hit = 1;

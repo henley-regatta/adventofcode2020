@@ -7,7 +7,7 @@ import sys
 
 #Get the input list
 numlist = []
-with open("day1_input.txt",'r') as numfile:
+with open("../data/day1_input.txt",'r') as numfile:
     for l in numfile:
         numlist.append(int(l))
 
@@ -24,4 +24,3 @@ for i in range(len(numlist)) :
                 if i != k and j != k : #don't compare the same numbers again
                     if xy + numlist[k] == 2020:
                         print("{0} + {1} + {2} sum to 2020 with product {3}".format(x,y,numlist[k],x*y*numlist[k]))
-            

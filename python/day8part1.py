@@ -13,7 +13,7 @@
 import sys
 
 #Load the code into a numbered array of <x>,<ins>,<parm>
-codefile="day8_input.txt"
+codefile="../data/day8_input.txt"
 instructions=[]
 with open(codefile,"r") as cf:
     for cl in cf:

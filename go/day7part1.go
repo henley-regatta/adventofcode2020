@@ -101,7 +101,7 @@ func isInList(tgtColour string, listOfColours []string) bool {
 // ---------------------------------------------------------------------------
 
 func main() {
-  bagrules := parseInputRulesFile("day7_input.txt")
+  bagrules := parseInputRulesFile("../data/day7_input.txt")
   //bagrules := parseInputRulesFile("d7_test.txt")
   //fmt.Printf("%#v\n",bagrules)
   fmt.Println("Parsed " + strconv.Itoa(len(bagrules)) + " rules from input file")

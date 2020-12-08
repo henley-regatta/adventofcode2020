@@ -51,7 +51,7 @@ func runCourse(dx,dy int, course []string) int {
 // ---------------------------------------------------------------------
 func main() {
   // Load the course in
-  file,err := os.Open("day3_input.txt")
+  file,err := os.Open("../data/day3_input.txt")
   if err != nil {
     log.Fatal(err)
   }

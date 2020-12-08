@@ -160,7 +160,7 @@ fn read_instructions_from_file(f_name: impl AsRef<Path>) -> Vec<Instruction> {
 */
 
 fn main() {
-    let mut instructions = read_instructions_from_file("day8_input.txt");
+    let mut instructions = read_instructions_from_file("../data/day8_input.txt");
     println!("Read {} instructions from file", instructions.len());
 
     //First run is a bit different. Do it and see what we get

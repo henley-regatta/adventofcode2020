@@ -8,7 +8,7 @@ import sys
 
 #Load the "course" as a tree/blank array
 slope = []
-with open("day3_input.txt","r") as file:
+with open("../data/day3_input.txt","r") as file:
     temp = file.read().splitlines() # Read whole file, chomp newlines
     for l in temp:
         line = list(l)

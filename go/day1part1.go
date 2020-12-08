@@ -2,9 +2,9 @@ package main
 
 /*
  problem spec:
-     given a file containing a list of numbers, find the THREE numbers in that
+     given a file containing a list of numbers, find the TWO numbers in that
      list that sum to 2020.
-     Return the product of those THREE numbers.
+     Return the product of those two numbers.
 */
 
 import(
@@ -16,7 +16,7 @@ import(
 )
 
 func main() {
-  file,err := os.Open("day1_input.txt")
+  file,err := os.Open("../data/day1_input.txt")
   if err != nil {
     log.Fatal(err)
   }
@@ -40,17 +40,10 @@ func main() {
     x := numlist[i]
     for j := 0; j < len(numlist); j++ {
       if i == j {
-        continue //don't self-evaluate
+        continue /*don't self-evaluate*/
       }
-      y := numlist[j]
-      xy := x + y
-      for k := 0; k < len(numlist); k++ {
-        if (k == i) || (k == j) {
-          continue // no self-evaluation.
-        }
-        if xy + numlist[k] == 2020 {
-          fmt.Print(x , " + ", y, " + ", numlist[k], " = 2020 with product ", x*y*numlist[k], "\n")
-        }
+      if x + numlist[j] == 2020 {
+        fmt.Print(x , " + ", numlist[j], " = 2020 with product ", x*numlist[j], "\n")
       }
     }
   }

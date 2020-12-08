@@ -51,7 +51,7 @@ func countOccurrences(needle,haystack string) int {
 
 
 func main() {
-  file,err := os.Open("day2_input.txt")
+  file,err := os.Open("../data/day2_input.txt")
   if err != nil {
     log.Fatal(err)
   }

@@ -11,7 +11,7 @@
 import sys
 import json
 
-with open('day2_input_parsed.json','r') as j:
+with open('../data/day2_input_parsed.json','r') as j:
     pwdlist = json.load(j)
 
 compliant = 0
