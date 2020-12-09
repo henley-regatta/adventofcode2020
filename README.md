@@ -31,6 +31,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day7part2.py` - I spent much longer than I'd like to admit trying to work out why I was/wasn't double-counting sub-bags. But I got the answer in the end thanks to the example data. Not as much fun as I'd hoped.
   * `day8part1.py` - Now *this* is a fun little problem. It's a mini-VM code debug exercise. Yay!
   * `day8part2.py` - Oh even more fun, dynamic code analysis/modification. And it works too. Really enjoyed this.
+  * `day9part1.py` - OK this is a simple problem but the solution required a bit more fiddling than I was expecting. Works though.
 
 ## grr peer pressure
 
