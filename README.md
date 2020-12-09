@@ -1,6 +1,6 @@
 # adventofcode2020
 
-I don't think I've got the chops for this one for the full list but hey ho.
+I don't think I've got the chops for this one for the full list but hey ho. These are my answers for the [2020 Advent of Code](https://adventofcode.com/2020)
 
 Answers are structured by language (Python, Go, Rust) and named by day.
 
@@ -32,6 +32,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day8part1.py` - Now *this* is a fun little problem. It's a mini-VM code debug exercise. Yay!
   * `day8part2.py` - Oh even more fun, dynamic code analysis/modification. And it works too. Really enjoyed this.
   * `day9part1.py` - OK this is a simple problem but the solution required a bit more fiddling than I was expecting. Works though.
+  * `day9part2.py` - Feels a lot like I'm taking a brute-force approach to solving this but then it gets an answer and I have a fast computer, so whatever works?
 
 ## grr peer pressure
 
