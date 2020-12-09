@@ -48,8 +48,8 @@ peer-pressured into trying different solutions:
   * `day8part2.go` - Today's part 2 is a superset of part 1 so why bother implementing half a solution only? This problem seems to suit the way I'm writing Go so this solution looks OK to my simple eyes.
   * `day9part2.go` - Another day when part 2 is a superset so only that one implemented. Search algorithm here is improved over the Python naieve approach by using a single crab-walk up the number list, goes from O(n^2) to O(n). Happy with this one.
 
-...Every solution I write looks like early-90's imperative code because guess when
-I learnt how to program. Objects are _new fangled_ things to me.
+...Every solution I write looks like early-90's imperative code because _guess when
+I learned how to program_. Objects are _new fangled_ things to me.
 
 ### Profiling go is a pain
 
