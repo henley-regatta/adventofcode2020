@@ -1,6 +1,8 @@
 # adventofcode2020
 
-I don't think I've got the chops for this one for the full list but hey ho. These are my answers for the [2020 Advent of Code](https://adventofcode.com/2020)
+These are my answers for the [2020 Advent of Code](https://adventofcode.com/2020)
+
+I don't think I've got the chops to get to the end of this but we'll see how we go.
 
 Answers are structured by language (Python, Go, Rust) and named by day.
 
@@ -33,6 +35,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day8part2.py` - Oh even more fun, dynamic code analysis/modification. And it works too. Really enjoyed this.
   * `day9part1.py` - OK this is a simple problem but the solution required a bit more fiddling than I was expecting. Works though.
   * `day9part2.py` - Feels a lot like I'm taking a brute-force approach to solving this but then it gets an answer and I have a fast computer, so whatever works?
+  * `day10part1.py` - A Permutations problem. Sort of. Actually it's a counting problem but I ended up solving it recursively anyway. This counts as Too Much Effort I think.
 
 ## grr peer pressure
 
