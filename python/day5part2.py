@@ -15,6 +15,7 @@
 import sys
 
 seatcodes=[]
+#with open("../data/day5_peter_input.txt", "r") as enc:
 with open("../data/day5_input.txt", "r") as enc:
     for l in enc:
         try:
@@ -24,8 +25,10 @@ with open("../data/day5_input.txt", "r") as enc:
         except IndexError:
             print("can't start decoding line |{0}|".format(l))
 
+minSid = 9999999999
 maxSid = 0
 sidlist = []
+sumOfAllSIDS=0 #Attempt to get part2 answer using Peter's method.
 for sc in seatcodes:
     #Decode the row
     d=64
@@ -51,10 +54,12 @@ for sc in seatcodes:
     #Calculate the Seat ID from this row,col pair and see if it's the max
     sid = row*8 + col
     sidlist.append(sid)
-    if sid > maxSid :
-        maxSid = sid
+    if sid > maxSid :  maxSid = sid
+    if sid < minSid :  minSid = sid
+    sumOfAllSIDS=sumOfAllSIDS+sid
 
 print("Max SID found: {0}".format(maxSid))
+print("(Min SID found: {0})".format(minSid))
 
 #PART 2 starts here:
 sidlist = sorted(sidlist)
@@ -66,8 +71,19 @@ for i in range(len(sidlist)) :
     #method: values either side of ours should be the same as our value +/- 1
     #if not, we have a candidate. This algorithm SHOULD find 2 SIDs, and the
     #missing SID - our seat - is the one "inbetween" those two values
-    print(i)
+    #print(i)
     if sidlist[i-1] != sidlist[i]-1 or sidlist[i+1] != sidlist[i]+1 :
         candSID.append(sidlist[i])
 
-print(candSID)
+print("SIDS adjacent to missing SID: ", candSID)
+
+#Calculate part 2 using Peter's method
+i=minSid
+sum=0
+while i<=maxSid :
+    sum = sum + i
+    i = i + 1
+
+print("lowestSeat = {}, highestSeat = {}".format(minSid,maxSid))
+print("sum = {}, runningTotal = {}".format(sum,sumOfAllSIDS))
+print("Missing SID by Peter's method: {}".format(sum-sumOfAllSIDS))

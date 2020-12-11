@@ -55,6 +55,7 @@ peer-pressured into trying different solutions:
   * `day9part2.go` - Another day when part 2 is a superset so only that one implemented. Search algorithm here is improved over the Python naieve approach by using a single crab-walk up the number list, goes from O(n^2) to O(n). Happy with this one.
   * `day10part2.go` - Strictly I should do both parts of today's challenges because they're different problems, but time is pressing and part 2 was the more interesting. The algorithm's the same as the Python (finally optimised) version, this is just a working lesson in
   using global Maps in Go...
+  * `day11part2.go` - Another day when there's 2 different algorithms but I'm only doing 1 in Go. This is a little cleaner than my Python version but not much; I suspect I've missed some obvious optimisation somewhere that'd make this a bunch neater than it is.
 
 ...Every solution I write looks like early-90's imperative code because _guess when
 I learned how to program_. Objects are _new fangled_ things to me.

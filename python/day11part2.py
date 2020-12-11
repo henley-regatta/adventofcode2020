@@ -17,8 +17,10 @@
 #
 #  Iterate over a given input seat map applying the rules above until a steady-state
 #  is arrived at. How many seats are occupied?
+from os import system
 import sys
 import copy
+
 
 seatmapfile = "../data/day11_input.txt"
 #seatmapfile = "../data/day11_test1.txt"
@@ -160,6 +162,7 @@ if __name__ == "__main__":
         seatmap=iterate_seatmap_state(seatmap)
         iterations = iterations + 1
         newState_Number = calculate_state_number(seatmap)
+        system('clear')
         print("-"*30,end='')
         print(f"{iterations}: {oldState_Number}->{newState_Number}",end='')
         print("-"*30)
