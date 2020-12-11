@@ -37,6 +37,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day9part2.py` - Feels a lot like I'm taking a brute-force approach to solving this but then it gets an answer and I have a fast computer, so whatever works?
   * `day10part1.py` - A Permutations problem. Sort of. Actually it's a counting problem but I ended up solving it recursively anyway. This counts as Too Much Effort I think.
   * `day10part2.py` - *Definitely* a permutations problem. And one that requires a better-than-naïve approach to get answers in reasonable time (i.e. less than a day on a fast computer). I used a result-caching algorithm that lets me calculate sub-chains once and once only, which works surprisingly well. I'm not letting _anyone_ see the previous horribly naïve approaches I tried though....
+  * `day11part1.py` - We all knew Conway's Life would turn up eventually. Even though this answer works, I don't like it. It's messy stuff.
 
 ## grr peer pressure
 
