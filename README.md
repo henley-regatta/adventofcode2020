@@ -42,6 +42,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day12part1.py` - A very mechanistic but working solution for Part 1.
   * `day12part2.py` - Another simplistic by-the-numbers solution but I did optimise some of the rotations, I guess....
   * `day13part1.py` - This seems a little too easy but it gets the right answer....
+  * `day13part2.py` - This make up for it. I had to google the correct algorithm *and* a way to implement it for this problem so I really ought not to claim my star for the day. But I did. I'm frustrated that my home-grown attempts to try and work out the step sizes just didn't work even though they followed schemes similar or identical to those people were discussing online. Really quite upset with myself about this one.
 
 ## grr peer pressure
 
