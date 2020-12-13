@@ -41,6 +41,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day11part2.py` - The change in the visibility rule makes this version even messier, checking the limit conditions makes it horrible. And it's not helped by the liberal sprinkling of debug statements I've put everywhere. But it does get a correct answer.
   * `day12part1.py` - A very mechanistic but working solution for Part 1.
   * `day12part2.py` - Another simplistic by-the-numbers solution but I did optimise some of the rotations, I guess....
+  * `day13part1.py` - This seems a little too easy but it gets the right answer....
 
 ## grr peer pressure
 
