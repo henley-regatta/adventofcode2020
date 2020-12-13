@@ -15,7 +15,6 @@
 #   at i minutes past that DepartureTime?
 #
 #  (X gives a "free pass" for that minute-past-DepartureTime.)
-
 #
 import sys
 
@@ -34,20 +33,27 @@ def readBusList(datafile) :
     print(f" Offset/BusIDs: {busList}")
     return busList
 
-
 #######################################################################################
 #Something Something Chinese Remainder Theorem by Sieve method.
 def GoogledAnswerStillDontUnderstand(busList,limit) :
     departureTime = 0
     increment = busList[0][1]
+    print(f"For b= 0, dI={increment:2} : d={departureTime:15}, i={increment:15}")
     for offset, time in busList[1:] :
+        oInc=0
         while (departureTime + offset) % time != 0 :
             departureTime += increment
+            print(f"\t(o={oInc:3}, d={departureTime:15})")
+            oInc += 1
         increment *= time
+        print(f"For b={offset:2}, d={departureTime:15}, i={increment:15}")
     return departureTime
 
 
 #######################################################################################
+# This is the simple way of doing it, by iteration. The only optimisation I've made
+# is to spot that we can "jump ahead" by the zeroth'd index busId number
+# (this is still horrendously inefficient)
 def simplisticAlgorithm(busList,limit) :
     #There's a simplistic algorithm where you just count up checking as you go....
 
@@ -113,11 +119,7 @@ if __name__ == "__main__":
         print(f">>>>>>>>Solution must be less than {limSize:,}")
         answer1=GoogledAnswerStillDontUnderstand(busList,limSize)
         print(f"The Something Something Chinese Remainder Theorem by Sieving Answer is {answer1} ({answer1:,})")
-        answer2=simplisticAlgorithm(busList,limSize)
+        #answer2=simplisticAlgorithm(busList,limSize)
         print("-"*80)
-        if answer1 == answer2 :
-            pctMax = (answer1 / limSize) * 100
-            print(f">>>>>>>Answer is {pctMax:.1f}% of limit")
-        else :
-            print("Google lied.")
-            exit(2)
+        pctMax = (answer1 / limSize) * 100
+        print(f">>>>>>>Answer is {pctMax:.1f}% of limit")
