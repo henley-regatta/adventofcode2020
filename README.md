@@ -44,6 +44,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day13part1.py` - This seems a little too easy but it gets the right answer....
   * `day13part2.py` - This make up for it. I had to google the correct algorithm *and* a way to implement it for this problem so I really ought not to claim my star for the day. But I did. I'm frustrated that my home-grown attempts to try and work out the step sizes just didn't work even though they followed schemes similar or identical to those people were discussing online. Really quite upset with myself about this one.
   * `day14part1.py` - Despite how messy this is, I'm fairly happy with the solution here. Implemented my own bitmask format/instructions because the problem explicitly defines a 36-bit field rather than anything I'm confident Python supports, and because I'm not sure how I'd represent the tri-state bitmask natively anyway.
+  * `day14part2.py` - Having spotted what I thought was a trap, I wasted HOURS on this one trying to be clever about calculating successive instruction overlaps and summing by count instead.... only to find that the input data has a relatively low number of address repetitions per instruction and it's far quicker to brute-force execute with overlaps and do it that way. So here's a simple working answer with any number of warning/guard calculations that ultimately aren't needed.
 
 ## grr peer pressure
 
