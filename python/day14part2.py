@@ -25,8 +25,8 @@
 #     was wrong because the total number of X's in any given row is relatively low.
 #
 #     So it's quicker to just execute the instructions than do any overlap calculation.
-
 import sys
+import time
 
 ################################################################################
 def read_initialisation_program(infile) :
@@ -141,6 +141,70 @@ def calc_instr_count(memmask) :
             xCount += 1
     return 2**xCount
 
+################################################################################
+# Straight forward execution by directly enumerating all addresses to write
+# and updating as we go. Works well enough for <billion expected writes...
+def accumulate_exec(memory) :
+    fwdMemMap={}
+    overlaps=0
+    writes=0
+    calcWrites=0
+    for m in memory :
+        calcWrites += m[1]
+        for a in enumerate_addr(m[0]) :
+            writes +=1
+            if a in fwdMemMap :
+                overlaps += 1
+            fwdMemMap[a] = m[2]
+    #Now we have a complete memory map of the writes we can calculate the output:
+    addrs=0
+    runningCount=0
+    for a in fwdMemMap.keys() :
+        addrs+=1
+        aTxt=int_to_bittxt(a)
+        print(f"{aTxt} : {fwdMemMap[a]}" )
+        runningCount += fwdMemMap[a]
+    print(f"After {writes} actual from {calcWrites} expected memory writes to a total of {addrs} addresses with {overlaps} overlaps,")
+    return runningCount, writes
+
+################################################################################
+# Partitioned writes. Build a recursive data structure of depth "n" bits and
+# use that to store values. Should cut down the number of writes quite a bit.
+#def recursive_mem_exec(memory) :
+
+
+
+################################################################################
+#Wrapper for main calculations
+def solve_for_instructionset(instructions) :
+    #We need to process memory in order now to determine final update.
+    memory = []
+    for ins in instructions :
+        memory = execute_instruction(memory,ins)
+
+    #Work out how many expected "memory writes" we can expect evaulating this
+    #instruction set:
+    calcWrites=0
+    maxWrites=0
+    for m in memory:
+        calcWrites += m[1]
+        print(f"{m}")
+        if m[1]>maxWrites :
+            maxWrites = m[1]
+
+    numInstr = len(memory)
+    avgWritesPerInstr = calcWrites / len(memory)
+
+    #Execution time will scale linearly with the number of calculated Memory
+    #writes.... values in the billion here would be bad for performance
+    #(and given it's a 36-bit address space, potentially for memory usage too)
+    print(f"PREEXEC Caution: {calcWrites} memory writes for {numInstr} values")
+    print(f"(average {avgWritesPerInstr:.1f}, max {maxWrites})")
+
+    simpleRes,writes = accumulate_exec(memory)
+
+    print(f"The answer you seek is {simpleRes}")
+    return writes
 
 ################################################################################
 ################################################################################
@@ -166,53 +230,35 @@ if __name__ == '__main__' :
         },
     ]
 
+    print("-"*25, "TRIVIAL DATA","-"*25)
+    tStart=time.time()
+    writes=solve_for_instructionset(instructions)
+    tEnd=time.time()
+    tExec = time.time() - tStart
+    insPerSec = writes/tExec
+    print(f"Runtime: {tExec:2f}, Write Rate: {insPerSec:2f}")
+
+    print("-"*25, "ACTUAL DATA","-"*25)
     instructions=read_initialisation_program("../data/day14_input.txt")
-    print("Read {} instructions".format(len(instructions)))
+    tStart=time.time()
+    writes=solve_for_instructionset(instructions)
+    tEnd=time.time()
+    tExec = time.time() - tStart
+    insPerSec = writes/tExec
+    print(f"Runtime: {tExec:2f}, Write Rate: {insPerSec:2f}")
 
-    #We need to process memory in order now to determine final update.
-    memory = []
-    for ins in instructions :
-        memory = execute_instruction(memory,ins)
+    exit(0)
 
-    #Work out how many expected "memory writes" we can expect evaulating this
-    #instruction set:
-    calcWrites=0
-    maxWrites=0
-    for m in memory:
-        calcWrites += m[1]
-        if m[1]>maxWrites :
-            maxWrites = m[1]
+    #NB: The way this data is structured, we'll run out of actual memory before
+    #completion. But the estimated run time is ~20-40 minutes, if I enable overclocking
+    #on the CPU vs Power Saver mode.....
+    print("-"*25, "HARD DATA","-"*25)
+    instructions=read_initialisation_program("../data/day14_hard_input.txt")
+    tStart=time.time()
+    writes=solve_for_instructionset(instructions)
+    tEnd=time.time()
+    tExec = time.time() - tStart
+    insPerSec = writes/tExec
+    print(f"Runtime: {tExec:2f}, Write Rate: {insPerSec:2f}")
 
-    numInstr = len(memory)
-    avgWritesPerInstr = calcWrites / len(memory)
-
-    #Execution time will scale linearly with the number of calculated Memory
-    #writes.... values in the billion here would be bad for performance
-    #(and given it's a 36-bit address space, potentially for memory usage too)
-
-    print(f"PREEXEC Caution: {calcWrites} memory writes for {numInstr} values")
-    print(f"(average {avgWritesPerInstr:.1f}, max {maxWrites})")
-
-    #"Accumulate" the outputs forward:
-    fwdMemMap={}
-    overlaps=0
-    writes=0
-    calcWrites=0
-    for m in memory :
-        calcWrites += m[1]
-        for a in enumerate_addr(m[0]) :
-            writes +=1
-            if a in fwdMemMap :
-                overlaps += 1
-            fwdMemMap[a] = m[2]
-
-    #Now we have a complete memory map of the writes we can calculate the output:
-    addrs=0
-    runningCount=0
-    for a in fwdMemMap.keys() :
-        addrs+=1
-        runningCount += fwdMemMap[a]
-
-    print(f"After {writes} actual from {calcWrites} expected memory writes to a total of {addrs} addresses with {overlaps} overlaps,")
-    print(f"The answer you seek is {runningCount}")
     exit(0)
