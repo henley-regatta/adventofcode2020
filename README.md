@@ -46,6 +46,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day14part1.py` - Despite how messy this is, I'm fairly happy with the solution here. Implemented my own bitmask format/instructions because the problem explicitly defines a 36-bit field rather than anything I'm confident Python supports, and because I'm not sure how I'd represent the tri-state bitmask natively anyway.
   * `day14part2.py` - Having spotted what I thought was a trap, I wasted HOURS on this one trying to be clever about calculating successive instruction overlaps and summing by count instead.... only to find that the input data has a relatively low number of address repetitions per instruction and it's far quicker to brute-force execute with overlaps and do it that way. So here's a simple working answer with any number of warning/guard calculations that ultimately aren't needed.
   * `day15part1.py` - Turns out I got the answer on the first implementation attempt EXCEPT I mis-counted the termination loop so was giving an off-by-one answer. Hours later, here's the final version.
+  * `day15part2.py` - Strictly speaking this is the exact same solution as for Part 1, but I wrapped it in a test/timing harness. And forgot to purge the memory between different length runs and couldn't work out why it kept giving the wrong answers. Hey ho. It's a brute force solution but _reasonably_ memory efficient, and executes in 20 seconds on my (nice and fast) computer. AKA "good enough".
 
 ## grr peer pressure
 
