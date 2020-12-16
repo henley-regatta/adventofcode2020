@@ -48,6 +48,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day15part1.py` - Turns out I got the answer on the first implementation attempt EXCEPT I mis-counted the termination loop so was giving an off-by-one answer. Hours later, here's the final version.
   * `day15part2.py` - Strictly speaking this is the exact same solution as for Part 1, but I wrapped it in a test/timing harness. And forgot to purge the memory between different length runs and couldn't work out why it kept giving the wrong answers. Hey ho. It's a brute force solution but _reasonably_ memory efficient, and executes in 20 seconds on my (nice and fast) computer. AKA "good enough".
   * `day16part1.py` - A straightforward input-validation task. On the plus side: did it without reference to any test data and got the right answer on the first execution....
+  * `day16part2.py` - "A simple extension of part 1". Not really: needs part 1 validation and output but then needs to go further to deduce the field-column mappings based on the rules, which involves a sudoku-like approach to reducing what isn't a system of equations but mathematically is close to it. Solution arrived at by seeing one input column having only one possible field mapping and going from there. And working out and implementing at least 2, possibly 3, different ways to assign potential rules to input columns....
 
 ## grr peer pressure
 
