@@ -75,9 +75,6 @@ def play_game(initNumbers,targetTurn) :
         else :
             #Number has definitely been spoken before.
             nextNumber = nData[pNum]['l'] - nData[pNum]['p']
-        #Update stats
-        if i > targetTurn-10 :
-            print(f"{i:10} SPEAK: {nextNumber}")
         pNum=nextNumber
         if nextNumber not in nData :
             nData[nextNumber] = {'l' : i, 'p' : 0 }
