@@ -52,7 +52,8 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day17part1.py` - AKA "Conway's Life is too simple, here's a 3d version". Deeply unsatisfying to implement as it's just more grinding it out and utterly failing to interpret the "sample data" provided because it'd been clipped. But... I did get the right answer.
   * `day17part2.py` - Oh just extend to 4 dimensions now. I took the easy way out and just added dimensions to each of my functions keeping the algorithm identical; I can tell this isn't a solution that scales effectively but I'm waaay past caring. It works, it gets me an answer in acceptable time (well under a minute), it'll do. I have no inclination to tackle it in another language.
   * `day18part1.py` - This is a simple-math-with-odd-precedence-rules problem. More an exercise in tokenisation and executing a sequence correctly but fairly interesting and satisfying to resolve.
-  * `day18part2.py` - This was more an exercise in building a robust test suite prior to executing than in reasoning it out - the change in order precedence meant building a psuedo-RPN evaluation engine that "fires" as the right time to give the right sequence of sub-operations and there's some interesting edge cases in there. 
+  * `day18part2.py` - This was more an exercise in building a robust test suite prior to executing than in reasoning it out - the change in order precedence meant building a psuedo-RPN evaluation engine that "fires" as the right time to give the right sequence of sub-operations and there's some interesting edge cases in there.
+  * `day19part1.py` - This one kept me up all night thinking which is why I didn't finish it until the following morning. Solved with recursion, caching and pure-and-simple enumeration of possible messages. Only one or two extra clauses away from algorithmic/memory explosion.... but it works.
 
 ## grr peer pressure
 
