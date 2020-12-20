@@ -54,6 +54,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day18part1.py` - This is a simple-math-with-odd-precedence-rules problem. More an exercise in tokenisation and executing a sequence correctly but fairly interesting and satisfying to resolve.
   * `day18part2.py` - This was more an exercise in building a robust test suite prior to executing than in reasoning it out - the change in order precedence meant building a psuedo-RPN evaluation engine that "fires" as the right time to give the right sequence of sub-operations and there's some interesting edge cases in there.
   * `day19part1.py` - This one kept me up all night thinking which is why I didn't finish it until the following morning. Solved with recursion, caching and pure-and-simple enumeration of possible messages. Only one or two extra clauses away from algorithmic/memory explosion.... but it works.
+  * `day19part2.py` - On the plus side: I spotted the pattern the extra rules created. On the downside: I majorly missed one of the implications of that pattern, leading to a whole class of valid messages being rejected. On the mid-side: Finding out why, diagnosing it, and *fixing it* means the resultant code should be taken out and shot. But: It Does Get The Right Answer (over a day late)
 
 ## grr peer pressure
 
