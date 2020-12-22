@@ -1,19 +1,34 @@
 #!/usr/bin/python3
 #
-# My solution for Day 20 Part 1
+# My solution for Day 20 Part 2. 36 hours in the making.
 #
 # PROBLEM
 #    Given a set of "Input Images" consisting of 8-by-8 binary maps, each
 #    tagged with a specific "Image ID", construct a mosaic by matching the
 #    edges. Tiles may need rotating and/or flipping to align along the borders.
+#    Once the image is assembled and oriented, search it for "monster" patterns.
 #
 # QUESTION:
-#      What is the product of the IDs of the 4 corner tiles?
+#    After excluding "monsters", how many "waves" (unassigned '#' chars)
+#    remain?
 import sys
 import math
 
-#datfile="../data/day20_input.txt"
-datfile="../data/day20_test.txt"
+datfile="../data/day20_input.txt"
+#datfile="../data/day20_test.txt"
+
+
+# Nessie looks like:
+#             1         2
+#   012345678901234567890
+# 0|                  #
+# 1|#    ##    ##    ###
+# 2| #  #  #  #  #  #
+nessie=[
+    [18,0],
+    [0,1],[5,1],[6,1],[11,1],[12,1],[17,1],[18,1],[19,1],
+    [1,2],[4,2],[7,2],[10,2],[13,2],[16,2]
+    ]
 
 ###############################################################################
 # Every day starts with a....
@@ -96,30 +111,6 @@ def calc_border_ints(image) :
     return bIDS
 
 ###############################################################################
-def showImage(imgId,images) :
-    for row in images[imgId]['image'] :
-        print(row)
-
-###############################################################################
-def do_transform(transform,img) :
-    if transform / 8 == 1 :
-        print("flipVertical")
-        img=flipVertical(img)
-        transform -= 8
-    if transform / 4 == 1 :
-        print("flipHorizontal")
-        img=flipHorizontal(img)
-        transform -= 4
-    if transform / 2 == 1 :
-        print("rotateRight")
-        img=rotateRight(img)
-        transform -=2
-    if transform>0 :
-        print("rotateLeft")
-        img=rotateLeft(img)
-    return img
-
-###############################################################################
 def flipHorizontal(toFlip) :
     flipped=[]
     for row in toFlip :
@@ -132,7 +123,6 @@ def flipVertical(toFlip) :
     for row in toFlip[::-1] :
         flipped.append(row)
     return flipped
-
 ###############################################################################
 def rotateRight(srcImage) :
     matrix=[]
@@ -176,98 +166,7 @@ def rotateLeft(srcImage) :
     return rotated
 
 ###############################################################################
-# Work out the transformation required to make <from>:<to> work
-def get_transform(fEdge,tEdge) :
-    reflect=False
-    horizontalReflect=False
-    rotate=False
-    leftRotate=False
-    print(f"Inspect: {fEdge}:{tEdge}",end=" ")
-    if "mirror" in fEdge and "mirror" in tEdge :
-        #Ignore; a 2-mirror-link is the same as a non-mirror link
-        #(and there will be an equivalent link without the mirror)
-        print("no transform required")
-        return 0
-    #If only ONE SIDE needs a mirror, then (at least one) reflection is required
-    #(possibly on it's own, possibly in addition to a rotation)
-    if ("mirror" in fEdge and "mirror" not in tEdge) or (
-        "mirror" not in fEdge and "mirror" in tEdge) :
-        reflect=True
-        if("top" in fEdge or "bottom" in fEdge) :
-            horizontalReflect = True
-    #Determine whether rotation required.
-    if ("top" in fEdge and "left" in tEdge) or (
-        "left" in fEdge and "bottom" in tEdge) or (
-        "bottom" in fEdge and "right" in tEdge) or (
-        "right" in fEdge and "top" in tEdge) :
-        rotate=True;
-        leftRotate=True
-    elif ("top" in fEdge and "right" in tEdge) or (
-        "left" in fEdge and "top" in tEdge) or (
-        "bottom" in fEdge and "left" in tEdge) or (
-        "right" in fEdge and "bottom" in tEdge) :
-        rotate=True;
-    ################
-    transform=0
-    if rotate :
-        if leftRotate :
-            print("needs leftRotate")
-            transform=1
-        else :
-            print("needs rightRotate")
-            transform=2
-    if reflect :
-        if horizontalReflect :
-            print("needs horizontalFlip")
-            transform += 4
-        else :
-            print("needs verticalFlip")
-            transform += 8
-    #################
-    if transform==0 : print("no transformation required")
-    return transform
-
-###############################################################################
-def getLinks(imgID,images,transformedAlready) :
-    links=[]
-    images[imgID]['borders'] = calc_border_ints(images[imgID]['image'])
-    #print(f"getLinks from {imgID}, vertices: {images[imgID]['borders']}")
-    for fromEdge in images[imgID]['borders'].keys() :
-        vertexID=images[imgID]['borders'][fromEdge]
-        for j in images :
-            if imgID == j : continue #Don't self-evaluate
-            for toEdge in images[j]['borders'].keys() :
-                if vertexID == images[j]['borders'][toEdge] :
-                    print([imgID,fromEdge,vertexID,toEdge,j])
-                    #print(f"links into {j}, vertices: {images[j]['borders']}")
-                    trans=get_transform(fromEdge,toEdge)
-                    if 'trans' in images[j] and images[j]['trans'] == trans :
-                        print(f"This isn't going to work out; {j} has already had {trans} transformation")
-                        exit(2)
-                    elif trans>0 and not transformedAlready:
-                        images[j]['trans'] = trans
-                        print(f"performing trans on {j}:", end="")
-                        images[j]['image'] = do_transform(trans,images[j]['image'])
-                        images[j]['borders'] = calc_border_ints(images[j]['image'])
-                        links.append(getLinks(imgID,images,True))
-                    elif trans>0 and transformedAlready :
-                        print(f"FAILED {imgID} -> {j}")
-                        print(f"Give in and call it quits; still needs transformation {transform} after recurse")
-                        exit(1)
-                    elif trans==0 and transformedAlready :
-                        return [fromEdge,j,toEdge]
-                    else :
-                        links.append([fromEdge, j, toEdge])
-    #Translate the "links" into a kvp list with single elements
-    hops={}
-    for l in links :
-        if l[1] in hops : continue
-        else :
-            hops[l[1]]=[l[0],l[2]]
-    return hops
-
-###############################################################################
-# helper for later visualisation
+# helper for later visualisation, also used for calculating vertices
 def turnBorderToBinary(image) :
     image[0] = image[0].replace(".","0").replace("#","1")
     image[len(image)-1] = image[len(image)-1].replace(".","0").replace("#","1")
@@ -277,6 +176,7 @@ def turnBorderToBinary(image) :
         l[len(l)-1] = l[len(l)-1].replace(".","0").replace("#","1")
         image[i]="".join(l)
     return image
+
 ###############################################################################
 def simple_vertex_calc(image) :
     vert={}
@@ -290,6 +190,76 @@ def simple_vertex_calc(image) :
     vert["l"] = int(lStr,2)
     vert["r"] = int(rStr,2)
     return vert
+
+###############################################################################
+def permute_image(img) :
+    permute =  {
+        'normal'     : img,
+        'right'      : rotateRight(img),
+        'diagonal'   : rotateRight(rotateRight(img)),
+        'left'       : rotateLeft(img),
+        'horizontal' : flipHorizontal(img),
+        'vertical'   : flipVertical(img),
+        'right_horizontal' : rotateRight(flipHorizontal(img)),
+        'right_vertical'  : rotateRight(flipVertical(img))
+    }
+    return permute
+
+###############################################################################
+def calc_permute_vertices(permImg) :
+    borders = {
+        'normal' : simple_vertex_calc(permImg['normal']),
+        'right' : simple_vertex_calc(permImg['right']),
+        'diagonal' : simple_vertex_calc(permImg['diagonal']),
+        'left' : simple_vertex_calc(permImg['left']),
+        'horizontal' : simple_vertex_calc(permImg['horizontal']),
+        'vertical' : simple_vertex_calc(permImg['vertical']),
+        'right_horizontal' : simple_vertex_calc(permImg['right_horizontal']),
+        'right_vertical' : simple_vertex_calc(permImg['right_vertical'])
+    }
+    return borders
+
+###############################################################################
+def add_overlay_to_bitmap(bitmap,overlay,offset) :
+    for p in overlay :
+        bitmap[p[1]+offset[1]][p[0]+offset[0]] = "O"
+    return bitmap
+
+###############################################################################
+# It's a match if all the points in nessie map to '#' chars
+def match_nessie(bitmap,x,y) :
+    global nessie
+    mP=[]
+    for p in nessie :
+        if bitmap[p[1]+y][p[0]+x] != '#' :
+            return False
+        else :
+            mP.append([p[0]+x,p[1]+y])
+    return True
+
+###############################################################################
+# We probably could do a RegEx search but that's multi-line and I don't wanna.
+# So we'll define as a sparse array and search from offsets. As a convenience,
+# return an altered bitmap with all found Nessies overlaid on the original
+# (which actually makes *answering the question asked* easier as well as looking
+#  good....)
+def search_for_nessie(img) :
+    #Strictly speaking we don't need to do this but it'll make life easier to
+    #treat the whole image as a point-addressable "bitmap"
+    srchImg=[]
+    for r in img :
+        srchImg.append(list(r))
+    #We can search the image by permuting across from a start-point that's
+    #3-down-from-top and along as far as 19-left-of-end looking for nessie matches
+    nessieMatches=[]
+    print(f"imgDim x={len(srchImg[0])}, y={len(srchImg)}")
+    for y in range(0,len(srchImg)-2) :
+        for x in range(0,len(srchImg[0])-19) :
+            if match_nessie(srchImg,x,y) :
+                nessieMatches.append([x,y])
+    for m in nessieMatches :
+        srchImg = add_overlay_to_bitmap(srchImg,nessie,m)
+    return len(nessieMatches), srchImg
 
 ###############################################################################
 ###############################################################################
@@ -345,7 +315,7 @@ if __name__ == '__main__' :
     #PART TWO BEGINS HERE......
     #
 
-    #ITS BRUTE FORCE TIME, BITCHES.
+    #ITS BRUTE FORCE TIME.
     #Each Tile can have 8 orientations -
     #  original,
     #  flippedVertical,
@@ -360,27 +330,8 @@ if __name__ == '__main__' :
     imgPermute={}
     borders={}
     for i in images :
-        img=turnBorderToBinary(images[i]['image'])
-        imgPermute[i] = {
-            'normal'     : img,
-            'right'      : rotateRight(img),
-            'diagonal'   : rotateRight(rotateRight(img)),
-            'left'       : rotateLeft(img),
-            'horizontal' : flipHorizontal(img),
-            'vertical'   : flipVertical(img),
-            'right_horizontal' : rotateRight(flipHorizontal(img)),
-            'right_vertical'  : rotateRight(flipVertical(img))
-        }
-        borders[i] = {
-            'normal' : simple_vertex_calc(imgPermute[i]['normal']),
-            'right' : simple_vertex_calc(imgPermute[i]['right']),
-            'diagonal' : simple_vertex_calc(imgPermute[i]['diagonal']),
-            'left' : simple_vertex_calc(imgPermute[i]['left']),
-            'horizontal' : simple_vertex_calc(imgPermute[i]['horizontal']),
-            'vertical' : simple_vertex_calc(imgPermute[i]['vertical']),
-            'right_horizontal' : simple_vertex_calc(imgPermute[i]['right_horizontal']),
-            'right_vertical' : simple_vertex_calc(imgPermute[i]['right_vertical'])
-        }
+        imgPermute[i] = permute_image(turnBorderToBinary(images[i]['image']))
+        borders[i] = calc_permute_vertices(imgPermute[i])
 
     #RIGHT, we have a FULLY PERMUTATED LIST.
     #build the rows as before.
@@ -469,11 +420,24 @@ if __name__ == '__main__' :
 
     #OH DEAR GOD WE MADE IT (or something like it)
     #AN ASSEMBLED IMAGE:
-    for r in bigImage :
-        print(r)
-
+    #for r in bigImage :
+    #    print(r)
 
     #AND NOW WE'RE READY TO START ON PART TWO OF THE MOTHER-LOVING PROBLEM.
-
-
-    exit(0)
+    permutedBigImages = permute_image(bigImage)
+    for t in permutedBigImages.keys() :
+        img=permutedBigImages[t]
+        numMatches,matchImage = search_for_nessie(img)
+        if numMatches>0 :
+            for r in matchImage:
+                print("".join(r))
+            print(f"{t} image permutation has {numMatches} Nessie matches")
+            #AND THE ANSWER TO THE QUESTION IS.....
+            waveCount=0
+            for y in range(len(matchImage)) :
+                for x in range(len(matchImage[0])) :
+                    if matchImage[y][x] == '#' :
+                        waveCount += 1
+            print(f"This leaves {waveCount} Wave Matches Remaining")
+        else :
+            print(f"{t} image permutation has no Nessie matches")
