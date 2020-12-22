@@ -58,6 +58,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day20part1.py` - I actually quite enjoyed this one, it's 50% understanding the maths (geometry) and 50% finding a decent technique. I quite like mine, although I think I over-complicated the process of going from IDs to Corners by a step or two. Still works though.
   * `day20part2.py` - _AH, HA HA ! HA_ *AKA* "The question that broke me". Took me _way_ too long to work out how to assemble the image from the slices (solved at 01:40 by brute-force consider-all-permutations after all my fancier methods failed me). Actually solving the question posed was about an hour's work after this (and quite fun) but dear lord just getting that pre-req done nearly killed me. The code is a mess.
   * `day21part1.py` - Hampered by mis-reading the question, then hampered by not understanding the required algorithm, then hindered by mucking around with Sets. Works though.
+  * `day21part2.py` - The "gift" 5-minute answer. I'd solved it in solving part 1, just a bit of output finagling required.
 
 ## grr peer pressure
 
