@@ -20,7 +20,7 @@ cuplist="418976235"
 #Demo data
 #cuplist="389125467"
 
-debug=False
+debug=True
 
 ################################################################################
 def play_crabcups_round(inlist,cIndex,minCup,maxCup) :

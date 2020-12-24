@@ -62,6 +62,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day22part1.py` - A nice short procedural problem that doesn't go all exponential on the test input. Solved in about 30 minutes and that includes the misreading-the-game-instructions debugging time. A delightful little palate-cleanser....
   * `day22part2.py` - Quite an illuminating extension of the game to recursion. "Winner" rule in the event of duplicate state was open to interpretation but mine gave the right answer (abort current game only not all games). Execution takes about 30 seconds on my PC with all in-game display IO turned off (~1 minute or more with it on) - pretty close to "have I got this right?" territory but on the right side.
   * `day23part1.py` - An *extremely* naïve solution. Which works.
+  * `day23part2.py` - As expected, part one solution didn't scale. Would have taken ~25 days to run. Could not think how to crack it until I found the hint online that linked lists were the way to go (obvious in retrospect when you think about the x-next-to-y-in-a-circle nature of the data you're representing). This got execution time down to ~20 seconds, which left plenty of time to debug the multiple off-by-one errors in the code (for calculating minimum, for calculating number of iterations and, most infuriatingly of all, for counting how many sodding elements make up a million). BUT WE GOT THE ANSWER. MERRY XMAS ONE AND ALL!
 
 ## grr peer pressure
 
