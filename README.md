@@ -61,7 +61,7 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day21part2.py` - The "gift" 5-minute answer. I'd solved it in solving part 1, just a bit of output finagling required.
   * `day22part1.py` - A nice short procedural problem that doesn't go all exponential on the test input. Solved in about 30 minutes and that includes the misreading-the-game-instructions debugging time. A delightful little palate-cleanser....
   * `day22part2.py` - Quite an illuminating extension of the game to recursion. "Winner" rule in the event of duplicate state was open to interpretation but mine gave the right answer (abort current game only not all games). Execution takes about 30 seconds on my PC with all in-game display IO turned off (~1 minute or more with it on) - pretty close to "have I got this right?" territory but on the right side.
-  * `day23part1.py` - An *extremely* naieve solution. Which works.
+  * `day23part1.py` - An *extremely* naïve solution. Which works.
 
 ## grr peer pressure
 
@@ -75,7 +75,7 @@ peer-pressured into trying different solutions:
   * `day4part2.go` - Again, only the larger problem today. Mostly an exercise in input validation. This feels like I'm missing some important idiomatic tricks from the language but then, all I have in my toolbox is this big hammer....
   * `day7part1.go` - Took me long enough to work out the input parsing and struct data format that I don't have time or inclination to have a go at part 2. This is ugly enough as it stands.
   * `day8part2.go` - Today's part 2 is a superset of part 1 so why bother implementing half a solution only? This problem seems to suit the way I'm writing Go so this solution looks OK to my simple eyes.
-  * `day9part2.go` - Another day when part 2 is a superset so only that one implemented. Search algorithm here is improved over the Python naieve approach by using a single crab-walk up the number list, goes from O(n^2) to O(n). Happy with this one.
+  * `day9part2.go` - Another day when part 2 is a superset so only that one implemented. Search algorithm here is improved over the Python naïve approach by using a single crab-walk up the number list, goes from O(n^2) to O(n). Happy with this one.
   * `day10part2.go` - Strictly I should do both parts of today's challenges because they're different problems, but time is pressing and part 2 was the more interesting. The algorithm's the same as the Python (finally optimised) version, this is just a working lesson in
   using global Maps in Go...
   * `day11part2.go` - Another day when there's 2 different algorithms but I'm only doing 1 in Go. This is a little cleaner than my Python version but not much; I suspect I've missed some obvious optimisation somewhere that'd make this a bunch neater than it is.
