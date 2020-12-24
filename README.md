@@ -60,7 +60,8 @@ will find multiple (duplicate) answers. Doesn't matter, got results.
   * `day21part1.py` - Hampered by mis-reading the question, then hampered by not understanding the required algorithm, then hindered by mucking around with Sets. Works though.
   * `day21part2.py` - The "gift" 5-minute answer. I'd solved it in solving part 1, just a bit of output finagling required.
   * `day22part1.py` - A nice short procedural problem that doesn't go all exponential on the test input. Solved in about 30 minutes and that includes the misreading-the-game-instructions debugging time. A delightful little palate-cleanser....
-  * `day22part2.py` - Quite an illuminating extension of the game to recursion. "Winner" rule in the event of duplicate state was open to interpretation but mine gave the right answer (abort current game only not all games). Execution takes about 30 seconds on my PC with all in-game display IO turned off (~1 minute or more with it on) - pretty close to "have I got this right?" territory but on the right side. 
+  * `day22part2.py` - Quite an illuminating extension of the game to recursion. "Winner" rule in the event of duplicate state was open to interpretation but mine gave the right answer (abort current game only not all games). Execution takes about 30 seconds on my PC with all in-game display IO turned off (~1 minute or more with it on) - pretty close to "have I got this right?" territory but on the right side.
+  * `day23part1.py` - An *extremely* naieve solution. Which works.
 
 ## grr peer pressure
 
