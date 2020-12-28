@@ -86,6 +86,7 @@ peer-pressured into trying different solutions:
   * `day11part2.go` - Another day when there's 2 different algorithms but I'm only doing 1 in Go. This is a little cleaner than my Python version but not much; I suspect I've missed some obvious optimisation somewhere that'd make this a bunch neater than it is.
   * `day12part2.go` - Probably needed to do both part 1 and part 2 but life's too short and this was the more complex problem. Mostly an exercise in pointlessly using structures than actually quickly solving a problem (a `map()` would be a simpler solution)
   * `day15part2.go` - I needed this out of my head and into code - it's calculation-limited problem, no i/o and limited memory impact. So it _ought_ to be much quicker in a compiled language, like Go. And, lo and behold it is: On my machine it's an order of magnitude faster than the Python version (completes in ~3 seconds compared to ~20 seconds for Python - ~9 million turns/second compared to ~1.5 million turns/sec in Python)
+  * `day23part2.go` - Thought I'd tackle this one as an at-scale linked list implementation but I mostly ended up fighting the compiler over how I mis-understood how Maps work. But it gets the answer, approximately three times faster than the Python version (7 seconds instead of 23 for Python)
 
 ...Every solution I write looks like early-90's imperative code because _guess when
 I learned how to program_. Objects are _new fangled_ things to me.
